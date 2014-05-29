@@ -65,8 +65,9 @@
 
 <section>
   <h2>Maven Plugins</h2>
+
   <p>
-    Everything that can do work in Maven is a Plugin:
+    Everything you can do in Maven is a Plugin:
   </p>
   <ul>
     <li><code>maven-compiler-plugin</code> - compiles code</li>
@@ -79,19 +80,16 @@
 <section>
   <h2>Plugins have goals to accomplish..</h2>
   <ul>
-    <li class="fragment">Dependency Plugin, download!</li>
-    <li class="fragment"><code>dependency:copy</code></li>
-    <li class="fragment">Dependency Plugin, show all project libs!</li>
-    <li class="fragment"><code>dependency:tree</code></li>
+    <li class="fragment"><code>compiler:compile</code> - compiles code</li>
+    <li class="fragment"><code>dependency:copy</code> - downloads dependency</li>
+    <li class="fragment"><code>dependency:tree</code> - shows list of dependencies</li>
   </ul>
 </section>
 
 <section>
-  <h2>Works in Mobile Safari</h2>
+  <h2>Let's compile & test</h2>
 
-  <p>
-    Try it out! You can swipe through the slides and pinch your way to the overview.
-  </p>
+  <p><code>mvn clean:clean dependency:resolve compiler:compile surefire:test</code></p>
 </section>
 
 <section>
