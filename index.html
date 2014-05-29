@@ -39,13 +39,36 @@
 <body>
 
 <div class="reveal">
+<div class="slides">
+  <section>
+    <h1>Part I: Project</h1>
 
+    <h3>Structure, Dependencies, Conventions</h3>
+
+    <p>
+      <small>Created by Stanislav Bashkyrtsev</small>
+    </p>
+  </section>
+  <section>
+    <h2>Build Tools usage</h2>
+    <ul>
+      <li class="fragment">Standardizing project structure</li>
+      <li class="fragment">Managing (external) dependencies</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Modules</h2>
+    <code>
+      project
+    </code>
+  </section>
+</div>
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
-<section data-background-transition="slide" data-transition="linear">
-  <h1>Maven Intro</h1>
+<section>
+  <h1>Part II: Plugins & Phases</h1>
 
-  <h3>Plugins, Phases, Dependencies</h3>
+  <h3>Compiling, testing, packaging, distributing</h3>
 
   <p>
     <small>Created by Stanislav Bashkyrtsev</small>
@@ -55,10 +78,10 @@
 <section>
   <h2>Build Tools usage</h2>
   <ul>
+    <li>Standardizing project structure</li>
+    <li>Managing (external) dependencies</li>
     <li class="fragment">Compiling, running tests</li>
     <li class="fragment">Building & uploading binaries</li>
-    <li class="fragment">Managing external dependencies</li>
-    <li class="fragment">Standardizing project structure</li>
     <li class="fragment">Adding custom behavior to work with codebase</li>
   </ul>
 </section>
@@ -87,9 +110,12 @@
 </section>
 
 <section>
-  <h2>Let's compile & test</h2>
+  <h2>Let's run unit tests</h2>
 
-  <p><code>mvn clean:clean dependency:resolve compiler:compile surefire:test</code></p>
+  <code><span class="fragment">mvn clean:clean</span> <span class="fragment">dependency:resolve</span>
+    <span class="fragment">resources:resources resources:testResources</span>
+    <span class="fragment">compiler:compile compiler:testCompile</span>
+    <span class="fragment">surefire:test</span></code>
 </section>
 
 <section>
