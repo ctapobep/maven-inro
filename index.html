@@ -57,10 +57,76 @@
     </ul>
   </section>
   <section>
-    <h2>Modules</h2>
-    <code>
-      project
-    </code>
+    <h2>Module Sources</h2>
+    <pre>
+     module-name
+      |_<b>pom.xml</b>
+      |_<b>src</b>
+        |_<b>main/java</b>/Main.java
+        |_<b>main/resources</b>/main-context.xml
+        |_<b>test/java/</b>MainTest.java
+        |_<b>test/resources</b>/test-context.xml
+    </pre>
+  </section>
+  <section>
+    <h2>Module Target</h2>
+    <pre>
+     module-name
+      |_pom.xml
+      |_src
+      | |_main/java/Main.java
+      | |_main/resources/main-context.xml
+      | |_test/java/MainTest.java
+      | |_test/resources/test-context.xml
+      |_<b>target</b>
+        |_<b>classes</b>
+        | |_Main.class
+        | |_main-context.xml
+        |_<b>test-classes</b>
+          |_MainTest.class
+          |_test-context.xml
+    </pre>
+  </section>
+  <section>
+    <h2>Multiple Modules</h2>
+    <pre>
+     <b>project</b>
+      |_pom.xml
+      |_<b>module1</b>
+      | |_pom.xml
+      |_<b>module2</b>
+        |_pom.xml
+    </pre>
+    <code>project/pom.xml</code>
+    <pre>
+      &lt;modules&gt;
+        &lt;module&gt;<b>module1</b>&lt;/module&gt;
+        &lt;module&gt;<b>module2</b>&lt;/module&gt;
+      &lt;/modules&gt;
+    </pre>
+  </section>
+  <section>
+    <h2>Modules Identification</h2>
+    <code>project/module1/pom.xml</code>
+    <pre>
+       &lt;groupId&gt;org.somecompany.project&lt;/groupId&gt;
+       &lt;artifactId&gt;module1&lt;/artifactId&gt;
+       &lt;version&gt;1.0.0&lt;/version&gt;
+    </pre>
+  </section>
+  <section>
+    <h2>Reusing Maven Artifacts</h2>
+    <code>mylib &#x2192; Internet Storage &#x2192; Other Applications</code>
+  </section>
+  <section>
+    <h2>Dependencies</h2>
+    <pre>
+      &lt;dependency&gt;
+        &lt;groupId&gt;org.somecompany.project&lt;/groupId&gt;
+        &lt;artifactId&gt;module1&lt;/artifactId&gt;
+        &lt;version&gt;1.0.0&lt;/version&gt;
+      &lt;/dependency&gt;
+    </pre>
   </section>
 </div>
 <!-- Any section element inside of this container is displayed as a slide -->
@@ -78,8 +144,8 @@
 <section>
   <h2>Build Tools usage</h2>
   <ul>
-    <li>Standardizing project structure</li>
-    <li>Managing (external) dependencies</li>
+    <li>&#x2713; Standardizing project structure</li>
+    <li>&#x2713; Managing (external) dependencies</li>
     <li class="fragment">Compiling, running tests</li>
     <li class="fragment">Building & uploading binaries</li>
     <li class="fragment">Adding custom behavior to work with codebase</li>
