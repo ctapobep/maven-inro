@@ -277,7 +277,22 @@
     </div>
   </div>
 </section>
-
+<section>
+  <h2>Bind Plugin to Phase</h2>
+  <pre>
+                       &lt;plugin&gt;
+                         &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+                         &lt;version&gt;3.1&lt;/version&gt;
+                         &lt;executions&gt;
+                           <b>&lt;phase&gt;test-compile&lt;/phase&gt;</b>
+                           &lt;goals&gt;
+                             <b>&lt;goal&gt;compile&lt;/goal&gt;</b>
+                           &lt;/goals&gt;
+                           &lt;/execution&gt;
+                         &lt;/executions&gt;
+                       &lt;/plugin&gt;
+    </pre>
+</section>
 
 <section data-markdown>
   <script type="text/template">
