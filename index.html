@@ -14,7 +14,8 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/custom.css">
   <link rel="stylesheet" href="css/theme/default.css" id="theme">
 
   <!-- For syntax highlighting -->
@@ -54,6 +55,26 @@
     <ul>
       <li class="fragment">Standardizing project structure</li>
       <li class="fragment">Managing (external) dependencies</li>
+      <li class="fragment">Compiling, running tests</li>
+      <li class="fragment">Building & uploading binaries</li>
+      <li class="fragment">Adding custom behavior to work with codebase</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Today's program</h2>
+    <ul>
+      <li><b>Standardizing project structure</b></li>
+      <li class="selection"><b>Managing (external) dependencies</b></li>
+      <li class="faded">Compiling, running tests</li>
+      <li class="faded">Building & uploading binaries</li>
+      <li class="faded">Adding custom behavior to work with codebase</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Standardizing</h2>
+    <ul>
+      <li>For Homo Sapiens</li>
+      <li>For Tools</li>
     </ul>
   </section>
   <section>
@@ -160,7 +181,6 @@
     <h2>Q/A</h2>
   </section>
 </div>
-<!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
 <section>
   <h1>Part II: Plugins & Phases</h1>
@@ -177,9 +197,9 @@
   <ul>
     <li>&#x2713; Standardizing project structure</li>
     <li>&#x2713; Managing (external) dependencies</li>
-    <li class="fragment">Compiling, running tests</li>
-    <li class="fragment">Building & uploading binaries</li>
-    <li class="fragment">Adding custom behavior to work with codebase</li>
+    <li>Compiling, running tests</li>
+    <li>Building & uploading binaries</li>
+    <li>Adding custom behavior to work with codebase</li>
   </ul>
 </section>
 
@@ -209,30 +229,30 @@
 <section>
   <h2>Let's run unit tests</h2>
 
-  <code><span class="fragment">mvn clean:clean</span> <span class="fragment">dependency:resolve</span>
+  <code><span class="fragment">dependency:resolve</span>
     <span class="fragment">resources:resources resources:testResources</span>
     <span class="fragment">compiler:compile compiler:testCompile</span>
     <span class="fragment">surefire:test</span></code>
 </section>
 
 <section>
-  <h2>Marvelous Unordered List</h2>
-  <ul>
-    <li>No order here</li>
-    <li>Or here</li>
-    <li>Or here</li>
-    <li>Or here</li>
-  </ul>
+  <h2>Phases to rescue!</h2>
+  <code>mvn test</code>
+</section>
+<section>
+  <h2>Default Lifecycle</h2>
+  <div style="font-size: 10">
+  <div>process-resources</div> &#x2193;
+  <div>compile</div> &#x2193;
+  <div>process-test-resources</div> &#x2193;
+  <div>test-compile</div> &#x2193;
+  <div>test</div> &#x2193;
+  <div>package</div> &#x2193;
+  <div>install</div> &#x2193;
+  <div>deploy</div>
+  </div>
 </section>
 
-<section>
-  <h2>Fantastic Ordered List</h2>
-  <ol>
-    <li>One is smaller than...</li>
-    <li>Two is smaller than...</li>
-    <li>Three!</li>
-  </ol>
-</section>
 
 <section data-markdown>
   <script type="text/template">
