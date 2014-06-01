@@ -94,16 +94,16 @@
     <pre>
      module-name
       |_pom.xml
-      |_src
-      | |_main/java/Main.java
-      | |_main/resources/main-context.xml
-      | |_test/java/MainTest.java
-      | |_test/resources/test-context.xml
-      |_<span class="fragment grow highlight-current-red">target</span>
-        |_<span class="fragment grow highlight-current-red">classes</span>
+      |_<span class="fragment grow highlight-current-red" data-fragment-index="1">src</span>
+      | |_<span class="fragment grow highlight-current-red" data-fragment-index="2">main/java</span>/Main.java
+      | |_<span class="fragment grow highlight-current-red" data-fragment-index="2">main/resources</span>/main-context.xml
+      | |_<span class="fragment grow highlight-current-red" data-fragment-index="3">test/java/</span>MainTest.java
+      | |_<span class="fragment grow highlight-current-red" data-fragment-index="3">test/resources</span>/test-context.xml
+      |_<span class="fragment grow highlight-current-red" data-fragment-index="1">target</span>
+        |_<span class="fragment grow highlight-current-red" data-fragment-index="2">classes</span>
         | |_Main.class
         | |_main-context.xml
-        |_<span class="fragment grow highlight-current-red">test-classes</span>
+        |_<span class="fragment grow highlight-current-red" data-fragment-index="3">test-classes</span>
           |_MainTest.class
           |_test-context.xml
     </pre>
@@ -112,7 +112,7 @@
     <h2>Multiple Modules</h2>
     <pre>
      <span class="fragment grow highlight-current-red">project</span>
-      |_pom.xml
+      |_<span class="fragment grow highlight-current-red">pom.xml</span>
       |_<span class="fragment grow highlight-current-red">module1</span>
       | |_pom.xml
       |_<span class="fragment grow highlight-current-red">module2</span>
@@ -153,28 +153,31 @@
     <h2>Sub-modules: Aggregation</h2>
     <code>project/pom.xml</code>
     <pre>
-      &lt;<b>modules</b>&gt;
+      &lt;<span class="fragment grow highlight-current-red" data-fragment-index="1">modules</span>&gt;
         &lt;module&gt;module1&lt;/module&gt;
-      &lt;/<b>modules</b>&gt;
+      &lt;/<span class="fragment grow highlight-current-red" data-fragment-index="1">modules</span>&gt;
     </pre>
   </section>
   <section>
     <h2>Sub-modules: Inheritance</h2>
     <code>project/module1/pom.xml</code>
     <pre>
-      &lt;<b>parent</b>&gt;
+      &lt;<span class="fragment grow highlight-current-red" data-fragment-index="1">parent</span>&gt;
         &lt;groupId&gt;org.somecompany.project&lt;/groupId&gt;
         &lt;artifactId&gt;project&lt;/artifactId&gt;
         &lt;version&gt;1.0.0&lt;/version&gt;
-      &lt;/<b>parent</b>&gt;
+      &lt;/<span class="fragment grow highlight-current-red" data-fragment-index="1">parent</span>&gt;
     </pre>
   </section>
   <section>
     <h2>Effective POM</h2>
-    <code>mvn help:effective-pom</code>
+    <code class="fragment grow highlight-current-red" data-fragment-index="5">mvn help:effective-pom</code>
 
     <p>
-      Effective POM = Module POM + Parent POM + Root POM
+      <span class="fragment grow highlight-current-red" data-fragment-index="4">Effective POM</span> =
+      <span class="fragment grow highlight-current-red" data-fragment-index="1">Module POM</span> +
+      <span class="fragment grow highlight-current-red" data-fragment-index="2">Parent POM</span> +
+      <span class="fragment grow highlight-current-red" data-fragment-index="3">Root POM</span>
     </p>
   </section>
   <section>
@@ -284,9 +287,9 @@
                          &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
                          &lt;version&gt;3.1&lt;/version&gt;
                          &lt;executions&gt;
-                           <b>&lt;phase&gt;test-compile&lt;/phase&gt;</b>
+                           <span class="fragment grow highlight-current-red">&lt;phase&gt;test-compile&lt;/phase&gt;</span>
                            &lt;goals&gt;
-                             <b>&lt;goal&gt;compile&lt;/goal&gt;</b>
+                             <span class="fragment grow highlight-current-red">&lt;goal&gt;compile&lt;/goal&gt;</span>
                            &lt;/goals&gt;
                            &lt;/execution&gt;
                          &lt;/executions&gt;
