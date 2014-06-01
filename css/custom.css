@@ -1,3 +1,22 @@
 .faded {
     color: grey;
 }
+
+.div-table {
+    display: table;
+    width: 550px;
+    margin: 0 auto !important;
+}
+
+.div-tr {
+    display: table-row;
+    width: auto;
+    clear: both;
+}
+
+.div-td {
+    float: left;
+    display: table-column;
+    text-align: center;
+    min-width: 250px;
+}

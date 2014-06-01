@@ -241,15 +241,40 @@
 </section>
 <section>
   <h2>Default Lifecycle</h2>
-  <div style="font-size: 10">
-  <div>process-resources</div> &#x2193;
-  <div>compile</div> &#x2193;
-  <div>process-test-resources</div> &#x2193;
-  <div>test-compile</div> &#x2193;
-  <div>test</div> &#x2193;
-  <div>package</div> &#x2193;
-  <div>install</div> &#x2193;
-  <div>deploy</div>
+
+  <div style="font-size: 70%;" class="div-table">
+    <div class="div-tr">
+      <div class="div-td">process-resources</div>
+      <div class="div-td fragment">(resources:resources)</div>
+    </div>
+    <div class="div-tr">
+      <div class="div-td">&#x2193;</div>
+    </div>
+    <div class="div-tr">
+      <div class="div-td">compile</div>
+      <div class="div-td fragment">(compiler:compile)</div>
+    </div>
+    <div class="div-tr">
+      <div class="div-td">&#x2193;</div>
+    </div>
+    <div class="div-tr">
+      <div class="div-td">process-test-resources</div>
+      <div class="div-td fragment">(resources:testResources)</div>
+    </div>
+    <div class="div-tr">
+      <div class="div-td">&#x2193;</div>
+    </div>
+    <div class="div-tr">
+      <div class="div-td">test-compile</div>
+      <div class="div-td fragment">(resources:testResources)</div>
+    </div>
+    <div class="div-tr">
+      <div class="div-td">&#x2193;</div>
+    </div>
+    <div class="div-tr">
+      <div class="div-td">test</div>
+      <div class="div-td fragment">(surefire:test)</div>
+    </div>
   </div>
 </section>
 
