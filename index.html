@@ -340,6 +340,63 @@
       [INFO]          \- org.springframework:spring-aop:jar:4.0.5.RELEASE:compile
     </pre>
   </section>
+  <section>
+    <h2>Dependency Management</h2>
+    <code>project/pom.xml</code>
+    <pre>
+      &lt;<span class="fragment grow highlight-current-red" data-fragment-index="1">dependencyManagement</span>&gt;
+        &lt;dependency&gt;
+          &lt;groupId&gt;org.somecompany.project&lt;/groupId&gt;
+          &lt;artifactId&gt;project&lt;/artifactId&gt;
+          &lt;version&gt;1.0.0&lt;/version&gt;
+        &lt;/dependency&gt;
+      &lt;/<span class="fragment grow highlight-current-red" data-fragment-index="1">dependencyManagement</span>&gt;
+    </pre>
+    <code>project/module1/pom.xml</code>
+    <pre>
+        &lt;dependency&gt;
+          &lt;groupId&gt;org.somecompany.project&lt;/groupId&gt;
+          &lt;artifactId&gt;project&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+    </pre>
+  </section>
+  <section>
+    <h2>Scopes</h2>
+    <pre>
+      &lt;dependency&gt;
+        &lt;groupId&gt;org.somecompany.project&lt;/groupId&gt;
+        &lt;artifactId&gt;project&lt;/artifactId&gt;
+        &lt;version&gt;1.0.0&lt;/version&gt;
+        &lt;scope&gt;compile&lt;/scope&gt;
+      &lt;/dependency&gt;
+    </pre>
+  </section>
+  <section>
+    <h2>Scopes</h2>
+    <ul>
+      <li class="fragment highlight-current-red grow">compile</li>
+      <li class="fragment highlight-current-red grow">test</li>
+      <li class="fragment highlight-current-red grow">runtime</li>
+      <li class="fragment highlight-current-red grow">provided</li>
+      <li class="fragment highlight-current-red grow">system - platform dependent</li>
+      <li class="fragment highlight-current-red grow">import</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Exclusions</h2>
+    <ul>
+
+    </ul>
+  </section>
+  <section>
+    <h2>Packaging</h2>
+  </section>
+  <section>
+    <h2>Module != Artifact</h2>
+  </section>
+  <section>
+    <h2>Classifiers</h2>
+  </section>
 </div>
 
 </div>
