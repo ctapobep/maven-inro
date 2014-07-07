@@ -339,6 +339,10 @@
       [INFO]       \- org.springframework:spring-web:jar:4.0.5.RELEASE:compile
       [INFO]          \- org.springframework:spring-aop:jar:4.0.5.RELEASE:compile
     </pre>
+    <aside class="notes">
+      There are 2 dependencies of <code>spring-context</code> - one in main module and one in module1. They have different
+      versions. After all the one that is less 'deeper' is going to be used.
+    </aside>
   </section>
   <section>
     <h2>Dependency Management</h2>
@@ -384,18 +388,101 @@
   </section>
   <section>
     <h2>Exclusions</h2>
-    <ul>
-
-    </ul>
+    <code>mvn dependency:tree</code>
+    <pre>
+           [INFO] org.somecompany.project:module1:jar:0.1-SNAPSHOT
+           [INFO] +- org.seleniumhq.selenium:selenium-server:jar:2.40.0:test
+           [INFO] |  +- org.bouncycastle:bcprov-jdk15on:jar:1.48:test
+           [INFO] |  +- org.bouncycastle:bcpkix-jdk15on:jar:1.48:test
+           [INFO] |  +- mx4j:mx4j-tools:jar:3.0.1:test
+           <span class="fragment highlight-red grow" data-fragment-index="1">[INFO] |  +- org.mortbay.jetty:servlet-api-2.5:jar:6.1.9:test</span>
+           <span class="fragment highlight-red grow" data-fragment-index="1">[INFO] +- javax.servlet:servlet-api:jar:3.0-alpha-1:compile</span>
+    </pre>
+    <aside class="notes">
+      Let's suppose we have a dependency we want to get rid of (org.mortbay.jetty:servlet-api-2.5) because it conflicts
+      with other dependencies or we simply don't need it.
+    </aside>
+  </section>
+  <section>
+    <h2>Exclusions</h2>
+    <code>project/pom.xml</code>
+    <pre>
+            &lt;dependency&gt;
+              &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+              &lt;artifactId&gt;org.seleniumhq.selenium&lt;/artifactId&gt;
+              &lt;version&gt;2.40.0&lt;/version&gt;
+              <span class="fragment highlight-red grow">&lt;exclusions&gt;
+                &lt;exclusion&gt;
+                  &lt;groupId&gt;org.mortbay.jetty&lt;/groupId&gt;
+                  &lt;artifactId&gt;org.mortbay.jetty&lt;/artifactId&gt;
+                &lt;/exclusion&gt;
+              &lt;/exclusions&gt;</span>
+            &lt;/dependency&gt;
+    </pre>
   </section>
   <section>
     <h2>Packaging</h2>
+    <p>Defines the resulting binary: jar, war, ear..</p>
+  </section>
+  <section>
+    <h2>Default Packaging</h2>
+    <code>&lt;packaging&gt;jar&lt;/packaging&gt;</code>
+  </section>
+  <section>
+    <h2>Aggregate with Packaging</h2>
+    <p>Only pom file is going to be packaged:</p>
+    <code>&lt;packaging&gt;pom&lt;/packaging&gt;</code>
+    <aside class="notes">Since pom packaging doesn't result in any artifacts, this is a good choice for a parent module</aside>
+  </section>
+  <section>
+    <h2>Typical Packaging</h2>
+    <pre style="text-align: center">
+     project-parent (pom)
+     |_module1 (jar)
+     |_module2 (jar)
+     |_module3 (war)
+    </pre>
   </section>
   <section>
     <h2>Module != Artifact</h2>
+    <p>Module exists only in sources</p>
+    <p>Artifact exists in a binary repo</p>
+    <aside class="notes">From previous slides it could've appeared that module is something close to the artifact,
+    but they are very different: there can be several artifacts for a single module. </aside>
+  </section>
+  <section>
+    <h2>Attached artifacts</h2>
+    <p><code>Attached</code> - secondary artifacts produced during build</p>
+  </section>
+  <section>
+    <h2>Attached artifacts</h2>
+    <p>Plugins like <code>Shade</code>, <code>Assembly</code>, <code>Build Helper</code> can attach artifacts</p>
   </section>
   <section>
     <h2>Classifiers</h2>
+    <p>How to distinguish several artifacts with same coordinates?</p>
+    <aside class="notes">If we have 2 artifacts (main & attached) that both have same artifactId, groupId, version, type
+      (both are jars), how do we distinguish between them in Binary Repo or &lt;dependency&gt;?</aside>
+  </section>
+  <section>
+    <h2>Classifiers</h2>
+    <p class="fragment fade-out">${artifactId}-${version}-${classifier}.${type}</p>
+    <p class="fragment roll-in">mavenintro-1.0.0-cool-classifier.jar</p>
+  </section>
+  <section>
+    <h2>Dependency revealed</h2>
+    <pre>
+           &lt;dependency&gt;
+             &lt;groupId&gt;com.example&lt;/groupId&gt;
+             &lt;artifactId&gt;mavenintro&lt;/artifactId&gt;
+             &lt;version&gt;1.0.0&lt;/version&gt;
+             <span class="fragment highlight-current-red grow">&lt;classifier&gt;cool-classifier&lt;/classifier&gt;</span>
+             <span class="fragment highlight-red grow">&lt;type&gt;jar&lt;/type&gt;</span>
+           &lt;/dependency&gt;
+    </pre>
+  </section>
+  <section>
+    <h2>Q/A</h2>
   </section>
 </div>
 
