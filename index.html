@@ -297,6 +297,14 @@
     </pre>
 </section>
 <section>
+  <h2>Types of Lifecycle</h2>
+  <ul>
+    <li><b>Clean</b>: <code>pre-clean &#x2192; clean &#x2192; post-clean</code></li>
+    <li><b>Default</b>: <code>validate &#x2192; .. &#x2192; compile &#x2192; .. &#x2192; deploy</code></li>
+    <li><b>Site</b>: <code>pre-site &#x2192; site &#x2192; post-site &#x2192; site-deploy</code></li>
+  </ul>
+</section>
+<section>
   <h2>The command</h2>
   <code>mvn clean install</code>
 </section>
