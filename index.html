@@ -366,19 +366,23 @@
     <code>project/pom.xml</code>
     <pre>
       &lt;<span class="fragment grow highlight-current-red" data-fragment-index="1">dependencyManagement</span>&gt;
-        &lt;dependency&gt;
-          &lt;groupId&gt;org.somecompany.project&lt;/groupId&gt;
-          &lt;artifactId&gt;project&lt;/artifactId&gt;
-          &lt;version&gt;1.0.0&lt;/version&gt;
-        &lt;/dependency&gt;
+        &lt;dependencies&gt;
+          &lt;dependency&gt;
+            &lt;groupId&gt;org.somecompany.project&lt;/groupId&gt;
+            &lt;artifactId&gt;project&lt;/artifactId&gt;
+            &lt;version&gt;1.0.0&lt;/version&gt;
+          &lt;/dependency&gt;
+        &lt;/dependencies&gt;
       &lt;/<span class="fragment grow highlight-current-red" data-fragment-index="1">dependencyManagement</span>&gt;
     </pre>
     <code>project/module1/pom.xml</code>
     <pre>
+      &lt;dependencies&gt;
         &lt;dependency&gt;
           &lt;groupId&gt;org.somecompany.project&lt;/groupId&gt;
           &lt;artifactId&gt;project&lt;/artifactId&gt;
         &lt;/dependency&gt;
+      &lt;/dependencies&gt;
     </pre>
   </section>
   <section>
@@ -431,7 +435,7 @@
               <span class="fragment highlight-red grow">&lt;exclusions&gt;
                 &lt;exclusion&gt;
                   &lt;groupId&gt;org.mortbay.jetty&lt;/groupId&gt;
-                  &lt;artifactId&gt;org.mortbay.jetty&lt;/artifactId&gt;
+                  &lt;artifactId&gt;servlet-api-2.5&lt;/artifactId&gt;
                 &lt;/exclusion&gt;
               &lt;/exclusions&gt;</span>
             &lt;/dependency&gt;
